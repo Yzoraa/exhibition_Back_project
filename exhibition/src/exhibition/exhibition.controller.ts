@@ -1,19 +1,28 @@
-import { Controller, Post, Get, Body } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { ExhibitionService } from './exhibition.service';
-import { Exhibition } from './entities/exhibition.entity';
 
 @Controller('exhibition')
 export class ExhibitionController {
     constructor(private readonly exhibitionService: ExhibitionService) {}
 
-    // 예시용
-    @Post()
-    async createData(@Body() data: Partial<Exhibition>) {
-        return this.exhibitionService.createEx(data);
+    @Get('fetch')
+    async fetchData(): Promise<string> {
+        return await this.exhibitionService.fetchAndSaveExhibitions();
     }
+    // @Get('/fetch')
+    // async fetchAndSave(): Promise<string> {
+    //     return this.exhibitionService.fetchAndSaveExhibitions();
+    // }
 
-    @Get()
-    async getAll() {
-        return this.exhibitionService.findAll();
-    }
+    // 모든 전시 조회
+    // @Get()
+    // async findAll(): Promise<Exhibition[]> {
+    //     return this.exhibitionService.findAll();
+    // }
+
+    // 특정 전시 조회
+    // @Get(':id')
+    // async findOne(@Param('id') id: number): Promise<Exhibition | null> {
+    //     return this.exhibitionService.findOne(id);
+    // }
 }

@@ -5,6 +5,8 @@ import { ExhibitionModule } from './exhibition/exhibition.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Exhibition } from './exhibition/entities/exhibition.entity';
+import { Institution } from './exhibition/entities/institution.entity'
+import { User } from './exhibition/entities/users.entity';
 
 @Module({
   imports: [
@@ -20,7 +22,7 @@ import { Exhibition } from './exhibition/entities/exhibition.entity';
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
-      entities: [Exhibition],
+      entities: [Exhibition, Institution, User],
       synchronize: process.env.NODE_ENV !== 'production', // 개발 환경에서만 true
     }),
     ExhibitionModule
