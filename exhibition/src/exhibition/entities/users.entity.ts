@@ -1,20 +1,20 @@
-import { Entity, PrimaryColumn, Column, CreateDateColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm';
 
 @Entity('users')
 export class User {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn({type:'int', comment:'고유 사용자ID'})
     id: number;
 
-    @Column({ type: 'varchar', length: 100, nullable: false })
+    @Column('varchar',{ comment: '사용자명', length: 100, nullable: false })
     name: string;
 
-    @Column({ type: 'varchar', length: 100, unique: true, nullable: false })
+    @Column('varchar',{ comment: '이메일', length: 100, unique: true, nullable: false })
     email: string;
 
-    @Column({ type: 'decimal', precision: 10, scale: 7, nullable: false })
+    @Column('decimal',{ comment: '위도', precision: 10, scale: 7, nullable: false })
     latitude: number;
 
-    @Column({ type: 'decimal', precision: 10, scale: 7, nullable: false })
+    @Column('decimal', { comment: '경도', precision: 10, scale: 7, nullable: false })
     longitude: number;
 
     @CreateDateColumn({ type: 'timestamp' })
