@@ -14,33 +14,33 @@ export class ExhibitionService {
 
         @InjectRepository(Institution)
         private readonly institutionRepository: Repository<Institution>,
-
-        private readonly configService: ConfigService,
     ) {}
 
     // 공공 API에서 데이터 가져와서 저장
-    async fetchAndSaveExhibitions(): Promise<string> {
-        const apiKey = process.env.API_KEY;
+    async SaveExhibitions(): Promise<string> {
         const baseUrl = process.env.API_BASE_URL;
 
         try {
             const response = await axios.get(`${baseUrl}`, {
                 params: {
                     // serviceKey: apiKey,
-                    numOfRows: 10, // 10개씩 가져오기
-                    pageNo: 1,
+                    // numOfRows: 10, // 10개씩 가져오기
+                    // pageNo: 1,
                     type: 'json',
                 },
             });
+            // console.log('전체 응답 데이터:', response.data);
+            // -> body{ items: [object] } 형식임을 확인!
 
-            // ✅ API 응답 데이터에서 올바른 경로 찾기
-            const exhibitions = response.data?.response?.body?.items; // ⬅ items만 가져옴
-            // console.log('🔍 items 데이터:', response.data.response.body.items);
+            // 올바른 경로
+            const items = response.data.response.body.items;
+            const exhibitions = Array.isArray(items) ? items : items?.item;
 
             if (!Array.isArray(exhibitions)) {
-                console.error('❌ 전시 데이터가 배열이 아닙니다:', exhibitions);
-                return '❌ 전시 데이터 형식 오류 발생';
+                console.error('전시 데이터가 배열이 아닙니다:', exhibitions);
+                return '전시 데이터 형식 오류 발생';
             }
+            // console.log(exhibitions[0]);
             
             for (const ex of exhibitions) {
                 let institution = await this.institutionRepository.findOne({ where: { name: ex.CNTC_INSTT_NM } });
@@ -71,14 +71,14 @@ export class ExhibitionService {
                     url: ex.URL || '', // 전시 홈페이지 url
                 });
                 await this.exhibitionRepository.save(newExhibition);
-                console.log('✅ 전시 데이터 저장 완료!');
+                console.log('전시 데이터 저장 완료!');
             }
     
-            return '✅ 전시 데이터 저장 완료!';
+            return '전시 데이터 저장 완료!';
             
         } catch (error) {
             console.error('전시 데이터 가져오기 실패:', error);
-            return '❌ 전시 데이터를 불러오는 중 오류 발생';
+            return '전시 데이터를 가져오는 중 오류 발생';
         }
     }
 

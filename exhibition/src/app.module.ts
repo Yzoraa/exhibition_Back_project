@@ -23,6 +23,7 @@ import { User } from './exhibition/entities/users.entity';
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
       entities: [Exhibition, Institution, User],
+      charset: 'utf8mb4',
       synchronize: process.env.NODE_ENV !== 'production', // 개발 환경에서만 true
     }),
     ExhibitionModule

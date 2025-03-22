@@ -3,16 +3,12 @@ import { ExhibitionService } from './exhibition.service';
 
 @Controller('exhibition')
 export class ExhibitionController {
-    constructor(private readonly exhibitionService: ExhibitionService) {}
+    constructor(private exhibitionService: ExhibitionService) {}
 
     @Get('fetch') // http://localhost:5000/exhibition/fetch 호출 시 실행됨!
     async fetchData(): Promise<string> {
-        return await this.exhibitionService.fetchAndSaveExhibitions();
+        return await this.exhibitionService.SaveExhibitions();
     }
-    // @Get('/fetch')
-    // async fetchAndSave(): Promise<string> {
-    //     return this.exhibitionService.fetchAndSaveExhibitions();
-    // }
 
     // 모든 전시 조회
     // @Get()
