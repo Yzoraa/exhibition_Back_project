@@ -77,6 +77,7 @@ export class ExhibitionService {
                             image_url: ex.IMAGE_OBJECT || '', // 메인 이미지 url
                             genre: ex.GENRE || '', // 장르
                             institution: institution, // 기관 FK 관계 설정
+                            // location: ex.CNTC_INSTT_NM || '', // 기관 위치
                             period: ex.PERIOD || '', // 기간 
                             event_period: ex.EVENT_PERIOD || '', // 운영시간
                             contact_point: ex.CONTACT_POINT || '', // 문의 연락처

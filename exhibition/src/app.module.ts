@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Exhibition } from './exhibition/entities/exhibition.entity';
 import { Institution } from './exhibition/entities/institution.entity'
 import { User } from './exhibition/entities/users.entity';
+import { LocationModule } from './location/location.module';
 
 @Module({
   imports: [
@@ -26,7 +27,8 @@ import { User } from './exhibition/entities/users.entity';
       charset: 'utf8mb4',
       synchronize: process.env.NODE_ENV !== 'production', // 개발 환경에서만 true
     }),
-    ExhibitionModule
+    ExhibitionModule,
+    LocationModule
   ],
   controllers: [AppController],
   providers: [AppService],
