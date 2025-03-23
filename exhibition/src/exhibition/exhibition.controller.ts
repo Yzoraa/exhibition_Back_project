@@ -1,5 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { ExhibitionService } from './exhibition.service';
+import { Exhibition } from './entities/exhibition.entity';
 
 @Controller('exhibition')
 export class ExhibitionController {
@@ -11,10 +12,10 @@ export class ExhibitionController {
     }
 
     // 모든 전시 조회
-    // @Get()
-    // async findAll(): Promise<Exhibition[]> {
-    //     return this.exhibitionService.findAll();
-    // }
+    @Get()
+    async findAll(exhibition): Promise<Exhibition[]> {
+        return this.exhibitionService.findAll();
+    }
 
     // 특정 전시 조회
     // @Get(':id')
