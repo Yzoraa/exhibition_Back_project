@@ -13,7 +13,7 @@ export class ExhibitionController {
 
     // 모든 전시 조회
     @Get()
-    async findAll(exhibition): Promise<Exhibition[]> {
+    async findAll(): Promise<Exhibition[]> {
         return this.exhibitionService.findAll();
     }
 

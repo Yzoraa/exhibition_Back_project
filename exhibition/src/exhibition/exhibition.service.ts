@@ -18,8 +18,8 @@ export class ExhibitionService {
     // 공공 API에서 데이터 가져와서 저장
     async SaveExhibitions(): Promise<string> {
         const baseUrl = process.env.API_BASE_URL;
-        // const numOfRows = 1000;
-        const numOfRows = 100;
+        const numOfRows = 1000;
+        // const numOfRows = 100;
         let pageNo = 1;
 
         try {
@@ -37,8 +37,8 @@ export class ExhibitionService {
                 // 올바른 경로
                 const items = response.data.response.body.items;
                 const exhibitions = Array.isArray(items) ? items : items?.item;
-                // const totalCount = response.data.response.body.totalCount;
-                const totalCount = 200 // 일단 연속으로 가져올 수 있는지 확인!
+                const totalCount = response.data.response.body.totalCount;
+                // const totalCount = 200 // 일단 연속으로 가져올 수 있는지 확인!
 
                 if (!Array.isArray(exhibitions)) {
                     console.error('전시 데이터가 배열이 아닙니다:', exhibitions);
@@ -56,8 +56,8 @@ export class ExhibitionService {
                         institution = this.institutionRepository.create({
                             name: ex.CNTC_INSTT_NM || '',  // 기관명
                             address: ex.ADDRESS || '',
-                            latitude: ex.LATITUDE || '', // 숫자 변환
-                            longitude: ex.LONGITUDE || '', // 숫자 변환
+                            latitude: ex.LATITUDE ? parseFloat(ex.LATITUDE) : null,  // 빈 문자열 처리
+                            longitude: ex.LONGITUDE ? parseFloat(ex.LONGITUDE) : null, // 빈 문자열 처리
                             contact_point: ex.CONTACT_POINT || '',
                             url: ex.URL || '',
                         });
@@ -73,7 +73,6 @@ export class ExhibitionService {
                     if (!existingExhibition) {
                         const newExhibition = this.exhibitionRepository.create({
                             title: ex.TITLE, // 제목 
-                            description: ex.DESCRIPTION || '', // 설명
                             image_url: ex.IMAGE_OBJECT || '', // 메인 이미지 url
                             genre: ex.GENRE || '', // 장르
                             institution: institution, // 기관 FK 관계 설정

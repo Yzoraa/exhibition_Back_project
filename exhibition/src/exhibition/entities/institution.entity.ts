@@ -13,10 +13,10 @@ export class Institution {
     address?: string;
 
     @Column('decimal', { comment: '위도', precision: 10, scale: 7, nullable: true })
-    latitude: string;
+    latitude: number | null;
 
     @Column('decimal', { comment: '경도', precision: 10, scale: 7, nullable: true })
-    longitude: string;
+    longitude: number | null;
 
     @Column('varchar', { comment: '기관 연락처', length: 50, nullable: true })
     contact_point?: string;

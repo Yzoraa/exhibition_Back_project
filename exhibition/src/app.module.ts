@@ -6,7 +6,6 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Exhibition } from './exhibition/entities/exhibition.entity';
 import { Institution } from './exhibition/entities/institution.entity'
-import { User } from './exhibition/entities/users.entity';
 import { LocationModule } from './location/location.module';
 
 @Module({
@@ -23,7 +22,7 @@ import { LocationModule } from './location/location.module';
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
-      entities: [Exhibition, Institution, User],
+      entities: [Exhibition, Institution],
       charset: 'utf8mb4',
       synchronize: process.env.NODE_ENV !== 'production', // 개발 환경에서만 true
     }),

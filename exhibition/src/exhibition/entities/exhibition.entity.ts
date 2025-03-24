@@ -8,9 +8,6 @@ export class Exhibition {
   @Column('varchar', {comment:'전시 제목', length: 255, nullable: false })
   title: string;
 
-  @Column('text', {comment:'전시 설명', nullable: true })
-  description?: string; // ?는 선택적 속성 의미
-
   @Column('varchar', {comment:'전시 메인 이미지 URL', length: 500, nullable: true })
   image_url?: string;
 

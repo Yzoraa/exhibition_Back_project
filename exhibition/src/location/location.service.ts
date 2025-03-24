@@ -66,8 +66,8 @@ export class LocationService {
             if (institution) {
                 // 이미 주소가 있다면 업데이트
                 institution.address = address;
-                institution.latitude = latitude;
-                institution.longitude = longitude;
+                institution.latitude = latitude ? parseFloat(latitude) : null;
+                institution.longitude = longitude ? parseFloat(longitude) : null;
                 await this.institutionRepository.save(institution);
 
                 console.log(`${name} 업데이트 완료 - 주소: ${address}, 위도: ${latitude}, 경도: ${longitude}`);
