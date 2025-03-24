@@ -16,9 +16,15 @@ export class LocationController {
     }
 
     // 주소 업데이트하는 API
-    @Get('update-adress/:name')
+    @Get('update-address/:name')
     async updateInstitution(@Param('name') name: string) {
         await this.locationService.updateInstitution(name);
         return { message: `${name} 기관의 주소가 업데이트되었습니다.` };
+    }
+
+    @Get('update-all')
+    async updateALL(){
+        await this.locationService.updateALL();
+        return { message: '모든 기관 주소 업데이트가 완료되었습니다.' };
     }
 }
