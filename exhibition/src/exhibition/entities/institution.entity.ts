@@ -12,11 +12,11 @@ export class Institution {
     @Column('varchar', { comment: '기관 주소', length: 500, nullable: true })
     address?: string;
 
-    @Column('decimal', { comment: '위도', precision: 10, scale: 7, nullable: false })
-    latitude: number;
+    @Column('decimal', { comment: '위도', precision: 10, scale: 7, nullable: true })
+    latitude: string;
 
-    @Column('decimal', { comment: '경도', precision: 10, scale: 7, nullable: false })
-    longitude: number;
+    @Column('decimal', { comment: '경도', precision: 10, scale: 7, nullable: true })
+    longitude: string;
 
     @Column('varchar', { comment: '기관 연락처', length: 50, nullable: true })
     contact_point?: string;

@@ -20,9 +20,6 @@ export class Exhibition {
   @ManyToOne(() => Institution, (institution) => institution.exhibitions, { onDelete: 'CASCADE' })
   institution: Institution; // 기관ID (FK)
 
-  // @Column('varchar', {comment:'기관위치', length: 255, nullable: true})
-  // location?:string;
-
   @Column('varchar', {comment:'전시기간', length: 255, nullable: true })
   period?: string;
 
