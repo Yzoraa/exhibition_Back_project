@@ -1,13 +1,13 @@
 <h2>:question: 프로젝트 소개</h2>
-<p>오픈API 활용한 가상 '전시정보 알림 웹사이트' 입니다.</p>
-<p>nestJS, MySQL을 사용해 데이터 공유를 진행했습니다.</p>
+<p>문화체육관광부 API를 활용하여 전시 정보를 제공하는 웹사이트의 백엔드입니다.</p>
+<p>nestJS, MySQL을 사용해 데이터 관리를 진행했습니다.</p>
 <p>프론트엔드 진행 : <b>exhibition_Front_project</b></p>
 <br /><br />
 
 
 <h2>📋 ERD 다이어그램</h2>
 <img src="https://github.com/user-attachments/assets/354ce055-8097-4f76-bb06-10282678a256">
-<br /><br /><br />
+<br /><br />
 
 
 <h2>:star: 진행</h2>
