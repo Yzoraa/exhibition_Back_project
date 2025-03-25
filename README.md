@@ -1,7 +1,7 @@
 <h2>:question: 프로젝트 소개</h2>
 <p>오픈API 활용한 가상 '전시정보 알림 웹사이트' 입니다.</p>
 <p>nestJS, MySQL을 사용해 데이터 공유를 진행했습니다.</p>
-<p>프론트엔드 진행 : exhibition_Front_project</p>
+<p>프론트엔드 진행 : <b>exhibition_Front_project</b></p>
 <br /><br />
 
 
