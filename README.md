@@ -1,6 +1,6 @@
 <h2>:question: 프로젝트 소개</h2>
 <p>문화체육관광부 API를 활용하여 전시 정보를 제공하는 웹사이트의 백엔드입니다.</p>
-<p>nestJS, MySQL을 사용해 데이터 관리를 진행했습니다.</p>
+<p>nestJS, MySQL, TypeORM을 사용해 데이터 관리를 진행했습니다.</p>
 <p>프론트엔드 진행 : <b>exhibition_Front_project</b></p>
 <br /><br />
 
@@ -25,6 +25,7 @@
   <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat&logo=MySQL&logoColor=white" />
   <img src="https://img.shields.io/badge/NestJS-E0234E?style=flat&logo=nestjs&logoColor=white" />
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white" />
-  <img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB"/>>
+  <img src="https://img.shields.io/badge/TypeORM-FF5733?style=flat&logo=typeorm&logoColor=white" />
+  <img src="https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB"/>
   <img src="https://img.shields.io/badge/CSS-1572B6?style=flat&logo=CSS3&logoColor=white" />
 </div>
